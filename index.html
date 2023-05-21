@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>로또 번호 생성기</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .numbers {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #numberHistory {
+      margin-top: 40px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #numberHistory li {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .ball {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      margin-right: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .red { background-color: red; }
+    .orange { background-color: orange; }
+    .yellow { background-color: #FFC300; }
+    .green { background-color: green; }
+    .blue { background-color: blue; }
+  </style>
+</head>
+<body>
+  <h1>로또 번호 생성기</h1>
+  <div class="numbers">
+    <p id="lottoNumbers"></p>
+  </div>
+  <button onclick="generateLottoNumbers()">번호 생성</button>
+
+  <h2>번호 기록</h2>
+  <ul id="numberHistory"></ul>
+
+
+  <script>
+    function generateLottoNumbers() {
+      var numbers = [];
+
+      while (numbers.length < 6) {
+        var randomNumber = Math.floor(Math.random() * 45) + 1;
+        if (numbers.indexOf(randomNumber) === -1) {
+          numbers.push(randomNumber);
+        }
+      }
+
+      var lottoNumbersElement = document.getElementById("lottoNumbers");
+      lottoNumbersElement.innerHTML = "";
+
+      for (var i = 0; i < numbers.length; i++) {
+        var span = document.createElement("span");
+        span.textContent = numbers[i];
+        span.className = "ball";
+        if (numbers[i] >= 1 && numbers[i] <= 10) {
+          span.classList.add("red");
+        } else if (numbers[i] >= 11 && numbers[i] <= 20) {
+          span.classList.add("orange");
+        } else if (numbers[i] >= 21 && numbers[i] <= 30) {
+          span.classList.add("yellow");
+        } else if (numbers[i] >= 31 && numbers[i] <= 40) {
+          span.classList.add("green");
+        } else {
+          span.classList.add("blue");
+        }
+        lottoNumbersElement.appendChild(span);
+      }
+
+      var numberHistoryElement = document.getElementById("numberHistory");
+      var li = document.createElement("li");
+      li.textContent = numbers.join(", ");
+      numberHistoryElement.appendChild(li);
+    }
+  </script>
+</body>
+</html>
