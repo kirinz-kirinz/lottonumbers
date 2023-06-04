@@ -2,10 +2,6 @@
 <html>
 <head>
   <title>로또 번호 생성기</title>
-  
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5184092704805925"
-  crossorigin="anonymous"></script>
-
   <style>
     body {
       text-align: center;
@@ -28,6 +24,10 @@
       color: white;
       border: none;
       cursor: pointer;
+    }
+
+    .ad-wrapper {
+      margin-top: 40px;
     }
 
     #numberHistory {
@@ -65,23 +65,18 @@
   <div class="numbers">
     <p id="lottoNumbers"></p>
   </div>
+
   <button onclick="generateLottoNumbers()">번호 생성</button>
 
-
-
-  <ins class="kakao_ad_area" style="display:none;"
-  data-ad-unit = "DAN-ojIuHmOLoU9jXWoy"
-  data-ad-width = "160"
-  data-ad-height = "600"></ins>
-  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-
-
+  <div class="ad-wrapper">
+    <ins class="kakao_ad_area" style="display:block;"
+    data-ad-unit="DAN-jmkYneVmZ04LC7OE"
+    data-ad-width="300"
+    data-ad-height="250"></ins>
+  </div>
 
   <h2>번호 기록</h2>
   <ul id="numberHistory"></ul>
-
-
-
   <script>
     function generateLottoNumbers() {
       var numbers = [];
@@ -120,8 +115,6 @@
       numberHistoryElement.appendChild(li);
     }
   </script>
+  <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
 </body>
-
-
-
 </html>
